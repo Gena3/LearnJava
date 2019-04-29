@@ -11,21 +11,25 @@ public class MainClass {
     }
 
     public static double integrate(DoubleUnaryOperator f, double a, double b) {
-        double dRetValue = 0, dStep = 1, firstSquare, dDelta;
+        double dRetValue = 0, dStep, firstSquare, dDelta;
         final double dAccuracy = 0.0000001;
-        for(double dI = a; dI < b; dI += dStep){
-            dRetValue += dStep * f.applyAsDouble(dI);
-        }
-        // dRetValue *= dStep;
-        dStep = dStep/2;
+        int             iCountOfSteps = 2;
+        final int       iMaxSteps = 10000000;
+        boolean         boolNotBreak = true;
+
+        firstSquare = f.applyAsDouble(a) * (b - a);
         dDelta = dAccuracy + 1;
-        firstSquare = dRetValue;
-        while(dAccuracy <= dStep && dDelta > dAccuracy){
-            dRetValue = 0;
-            for(double dI = a; dI < b; dI += dStep){
-                dRetValue += dStep * f.applyAsDouble(dI);
+        for(; boolNotBreak && Math.abs(dDelta) > dAccuracy; iCountOfSteps *= 2){
+            if((iCountOfSteps < 0) || iCountOfSteps >= iMaxSteps){
+                boolNotBreak = false;
+                iCountOfSteps = iMaxSteps;
             }
-            // dRetValue *= dStep;
+            dStep = (b - a) / iCountOfSteps;
+            dRetValue = 0;
+            for(int i = 0; i < iCountOfSteps; i++){
+                dRetValue += f.applyAsDouble(a + dStep * i);
+            }
+            dRetValue *= dStep;
             if(firstSquare != 0) {
                 dDelta = Math.abs(dRetValue - firstSquare) / firstSquare;
             }else if(dRetValue != 0){
@@ -33,8 +37,6 @@ public class MainClass {
             }else{// Значит равны :-)
                 break;
             }
-            firstSquare = dRetValue;
-            dStep = dStep/2;
         }
         return dRetValue;
     }
