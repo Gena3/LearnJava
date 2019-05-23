@@ -1,13 +1,14 @@
 package TextAnalyzer;
 
-import java.util.Arrays;
-
-public class SpamAnalyzer
+public class NegativeTextAnalyzer
 extends KeywordAnalyzer{
     private final String[] _keywords;
 
-    public SpamAnalyzer(String[] keywords){
-        _keywords = Arrays.copyOf(keywords, keywords.length);
+    public NegativeTextAnalyzer(){
+        _keywords = new String[3];
+        _keywords[0] = ":(";
+        _keywords[1] = "=(";
+        _keywords[2] = ":|";
     }
 
     @Override

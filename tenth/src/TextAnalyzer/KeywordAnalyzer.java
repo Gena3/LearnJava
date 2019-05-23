@@ -8,7 +8,8 @@ interface TextAnalyzer {
     Label processText(String text);
 }
 
-public abstract class KeywordAnalyzer {
+public abstract class KeywordAnalyzer
+implements TextAnalyzer {
 
     protected abstract String[] getKeywords();
 
