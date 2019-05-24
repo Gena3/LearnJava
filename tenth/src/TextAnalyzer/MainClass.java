@@ -1,5 +1,13 @@
 package TextAnalyzer;
 
+public class A{
+
+    public A(int a){
+
+    }
+
+}
+
 public class MainClass {
 
     public Label checkLabels(TextAnalyzer[] analyzers, String text) {
