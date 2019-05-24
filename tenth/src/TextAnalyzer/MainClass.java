@@ -3,13 +3,19 @@ package TextAnalyzer;
 public class MainClass {
 
     public Label checkLabels(TextAnalyzer[] analyzers, String text) {
-        return Label.OK;
+        Label retLabel = Label.OK;
+        for(TextAnalyzer currentAnalizer: analyzers){
+            retLabel = currentAnalizer.processText(text);
+            if (retLabel != Label.OK) break;
+        }
+        return retLabel;
     }
 
     public static void main(String[] args) {
         // инициализация анализаторов для проверки в порядке данного набора анализаторов
         String[] spamKeywords = {"spam", "bad"};
         int commentMaxLength = 40;
+
         TextAnalyzer[] textAnalyzers1 = {
                 new SpamAnalyzer(spamKeywords),
                 new NegativeTextAnalyzer(),

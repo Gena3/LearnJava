@@ -2,27 +2,22 @@ package TextAnalyzer;
 
 public class NegativeTextAnalyzer
 extends KeywordAnalyzer{
-    private final String[] _keywords;
+    private String[] keywords;
 
     public NegativeTextAnalyzer(){
-        _keywords = new String[3];
-        _keywords[0] = ":(";
-        _keywords[1] = "=(";
-        _keywords[2] = ":|";
+        keywords = new String[3];
+        keywords[0] = ":(";
+        keywords[1] = "=(";
+        keywords[2] = ":|";
     }
 
     @Override
-    public final String[] getKeywords(){
-        return _keywords;
+    protected final Label getLabel(){
+        return Label.NEGATIVE_TEXT;
     }
 
     @Override
-    public final Label getLabel(){
-        return Label.OK;
-    }
-
-    @Override
-    public final Label processText(String text){
-        return Label.OK;
+    protected final String[] getKeywords(){
+        return keywords;
     }
 }

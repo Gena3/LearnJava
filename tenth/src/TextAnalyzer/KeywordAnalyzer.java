@@ -14,4 +14,15 @@ implements TextAnalyzer {
     protected abstract String[] getKeywords();
 
     protected abstract Label getLabel();
+
+    public Label processText(String text){
+        Label retLabel = Label.OK;
+        for (String test : getKeywords()){
+            if (text.contains(test)){
+                retLabel = getLabel();
+                break;
+            }
+        }
+        return retLabel;
+    }
 }
