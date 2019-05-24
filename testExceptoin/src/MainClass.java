@@ -7,8 +7,6 @@ public class MainClass {
     }
 
     public static void main(String[] args) {
-
-        String a = "Hello world";
         Double b = (Double) MainClass.retObject();
     }
 }
