@@ -1,15 +1,6 @@
-public class MainClass {
-    private static Object retObject(){
-        String retS = "Except";
-        return retS;
-    }
-    private static double sqrt(double x) {
-        if (x < 0){
-            throw new IllegalArgumentException("Expected non-negative number, got " + x);
-        }
-        return Math.sqrt(x); // your implementation here
-    }
+import java.io.IOException;
 
+public class MainClass {
     public static String getCallerClassAndMethodName() {
         String strReturn;
         StackTraceElement elStackTrArr[];
@@ -17,10 +8,14 @@ public class MainClass {
             throw new IOException();
         }catch(IOException e){
             elStackTrArr = e.getStackTrace();
-            strReturn = elStackTrArr[1].getClassName();
+            if(elStackTrArr.length < 3){
+                strReturn = null;
+            } else {
+                strReturn = elStackTrArr[2].getClassName();
+            }
             if(strReturn != null)
             {
-                strReturn = strReturn + "#" + elStackTrArr[1].getMethodName();
+                strReturn = strReturn + "#" + elStackTrArr[2].getMethodName();
             }
         }
         return strReturn;
