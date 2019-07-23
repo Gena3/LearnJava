@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.io.IOException;
 
 public class MainClass {
@@ -12,7 +13,8 @@ public class MainClass {
         return Math.sqrt(x); // your implementation here
     }
 
-    public static String getCallerClassAndMethodName(){
+
+    public static String getCallerClassAndMethodName() {
         String strReturn;
         StackTraceElement elStackTrArr[];
         try{
@@ -27,6 +29,7 @@ public class MainClass {
         }
         return strReturn;
     }
+
     //
     private static void anotherMethod(){
         System.out.println(getCallerClassAndMethodName());
@@ -41,6 +44,5 @@ public class MainClass {
         //}
         System.out.println(getCallerClassAndMethodName());
         anotherMethod();
-
     }
 }
