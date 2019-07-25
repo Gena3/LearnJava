@@ -34,7 +34,10 @@ public class MainClass {
         logger2.setUseParentHandlers(false);
         logger2.setLevel(Level.ALL);
 
-
+        ConsoleHandler ch = new ConsoleHandler();
+        ch.setLevel(Level.ALL);
+        ch.setFormatter(new XMLFormatter());
+        logger2.addHandler(ch);
     }
     public static void main(String[] args){
         // Эти классы сделаны не в рамках задачи
