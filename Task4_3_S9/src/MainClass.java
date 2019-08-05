@@ -1,4 +1,5 @@
 import Post.*;
+import Post.Package;
 
 import java.util.logging.Logger;
 import java.lang.*;
@@ -14,7 +15,6 @@ public class MainClass {
     }
 
     public static class RealMailService implements MailService {
-
         @Override
         public Sendable processMail(Sendable mail) {
             // Здесь описан код настоящей системы отправки почты.
@@ -23,12 +23,16 @@ public class MainClass {
     }
 
     public static class StolenPackageException extends RuntimeException{
+        public StolenPackageException(){
+        }
         public StolenPackageException(String strMessage){
             super(strMessage);
         }
     }
 
     public static class IllegalPackageException extends RuntimeException{
+        public IllegalPackageException(){
+        }
         public IllegalPackageException(String strMessage){
             super(strMessage);
         }
@@ -124,7 +128,16 @@ public class MainClass {
     }
 
     public static void main(String[] args){
-
         System.out.println("Start");
+        // здесь просто проверял. В общем, этот код постоянно менялся. Что осталось, то осталось.
+        MailPackage mp1 = new MailPackage(AUSTIN_POWERS, "Me", new Package("Items", 10));
+        MailPackage mp2 = new MailPackage("You", "Me", new Package("legal content", 20));
+        MailPackage mp3 = null;
+        Thief thief = new Thief(25);
+        thief.processMail(mp1);
+        mp3 = (MailPackage) thief.processMail(mp2);
+        Inspector inspector = new Inspector();
+        mp3 = (MailPackage) inspector.processMail(mp3);
+        System.out.println(mp3.getContent().getContent());
     }
 }
