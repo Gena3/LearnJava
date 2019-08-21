@@ -12,6 +12,10 @@ class Animal implements Serializable {
         return name;
     }
 
+    public static String getString(){
+        return "hello world";
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Animal) {
