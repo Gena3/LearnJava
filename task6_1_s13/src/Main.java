@@ -16,7 +16,7 @@ public class Main {
 
         Pair<Integer, String> pair3 = Pair.of(33, "by");
         System.out.println("pair == pair3 : " + pair.equals(pair3));
-        System.out.println("pair.hashCode() == pair2.hashCode() : " + (pair.hashCode() == pair3.hashCode()));
+        System.out.println("pair.hashCode() == pair3.hashCode() : " + (pair.hashCode() == pair3.hashCode()));
 
         String string = "hello";
         System.out.println("pair == string : " + pair.equals(string));
