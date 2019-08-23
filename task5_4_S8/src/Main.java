@@ -34,13 +34,13 @@ public class Main {
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-        Object obj = new String("Privet");
-        TestOptional <? extends Integer> var1;
-        TestOptional <Object> var2 = new TestOptional<Object>("String");
-        TestOptional <DayOfWeek> var3;
-        TestOptional <CharSequence> var4;
+        //Object obj = new String("Privet");
+        //TestOptional <? extends Integer> var1;
+        //TestOptional <Object> var2 = new TestOptional<Object>("String");
+        //TestOptional <DayOfWeek> var3;
+        //TestOptional <CharSequence> var4;
 
-        var2.someMethod(obj);
+        //var2.someMethod(obj);
         // TestOptional <42> var5;
         //TestOptional <String::trim> var6;
         // TestOptional <int> var7;
