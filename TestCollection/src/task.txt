@@ -1,0 +1,15 @@
+Предположим, у нас есть две переменных:
+
+Collection<?> collection = ...;
+Object object = ...;
+
+Какие операции над collection допустимы?
+
+collection.add(object)
+collection.size()
+collection.addAll(Arrays.asList(object))
+collection.clear()
+collection.toArray()
+collection.remove(object)
+collection.iterator()
+collection.contains(object)
