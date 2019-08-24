@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
-        Double  dResult = .0;
+        Double dResult = .0;
         Scanner objScanner;
         // ************ подсуним тестовый данные ***************
         String strTest = "100 10,05 sdfasdf 1e3\n9.95";
